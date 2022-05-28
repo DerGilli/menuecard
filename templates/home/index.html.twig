@@ -12,15 +12,15 @@
 					<div class="row">
 						<div class="col-lg-6">
 							<div class="hs-text">
-								<h2><span>Music</span> for everyone.</h2>
-								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. </p>
-								<a href="#" class="site-btn">Download Now</a>
-								<a href="#" class="site-btn sb-c2">Start free trial</a>
+								<h2>{{firstDish.name}}</h2>
+								<p>{{firstDish.description}}</p>
+								<a href="{{path('app_ordering', {id: firstDish.id})}}" class="site-btn">Order</a>
+								<a href="{{path('app_menu')}}" class="site-btn sb-c2">See Menu</a>
 							</div>
 						</div>
 						<div class="col-lg-6">
 							<div class="hr-img">
-								<img src="{{asset('img/hero-bg.png')}}" alt="">
+								<img src="{{asset('img/' ~ firstDish.image)}}" alt="">
 							</div>
 						</div>
 					</div>
@@ -31,15 +31,15 @@
 					<div class="row">
 						<div class="col-lg-6">
 							<div class="hs-text">
-								<h2><span>Listen </span> to new music.</h2>
-								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. </p>
-								<a href="#" class="site-btn">Download Now</a>
-								<a href="#" class="site-btn sb-c2">Start free trial</a>
+								<h2>{{secondDish.name}}</h2>
+								<p>{{secondDish.description}}</p>
+								<a href="{{path('app_ordering', {id: secondDish.id})}}" class="site-btn">Order</a>
+								<a href="{{path('app_menu')}}" class="site-btn sb-c2">See Menu</a>
 							</div>
 						</div>
 						<div class="col-lg-6">
 							<div class="hr-img">
-								<img src="{{asset('img/hero-bg.png')}}" alt="">
+								<img src="{{asset('img/' ~ secondDish.image)}}" alt="">
 							</div>
 						</div>
 					</div>

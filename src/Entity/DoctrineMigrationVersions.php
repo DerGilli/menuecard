@@ -24,7 +24,7 @@ class DoctrineMigrationVersions
     /**
      * @var \DateTime|null
      *
-     * @ORM\Column(name="executed_at", type="datetime", nullable=true, options={"default"="NULL"})
+     * @ORM\Column(name="executed_at", type="datetime", nullable=true)
      */
     private $executedAt = 'NULL';
 
@@ -63,6 +63,4 @@ class DoctrineMigrationVersions
 
         return $this;
     }
-
-
 }

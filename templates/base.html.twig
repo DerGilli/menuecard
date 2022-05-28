@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="zxx">
 <head>
-	<title>SolMusic | HTML Template</title>
+	<title>Menukarte</title>
 	<meta charset="UTF-8">
-	<meta name="description" content="SolMusic HTML Template">
+	<meta name="description" content="Menukarte">
 	<meta name="keywords" content="music, html">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	
@@ -38,7 +38,7 @@
 	<!-- Header section -->
 	<header class="header-section clearfix">
 		<a href="index.html" class="site-logo">
-			<img src="{{asset('img/logo.png')}}" alt="">
+			Menukarte
 		</a>
 		<div class="header-right">
 			<div class="user-panel">
@@ -52,6 +52,8 @@
 		</div>
 		<ul class="main-menu">
 			<li><a href="{{path('app_home')}}">Willkommen</a></li>
+			<li><a href="{{path('app_menu')}}">Menu</a></li>
+			<li><a href="{{path('app_order')}}">Bestellungen</a></li>
 			{% if is_granted('IS_AUTHENTICATED_FULLY') %}
 			<li><a href="#">Mitarbeiter</a>
 				<ul class="sub-menu">
@@ -68,7 +70,7 @@
 	{% block body %}{% endblock %}
 
 	<!-- Intro section -->
-	<section class="intro-section spad">
+	{# <section class="intro-section spad">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-6">
@@ -82,7 +84,7 @@
 				</div>
 			</div>
 		</div>
-	</section>
+	</section> #}
 	<!-- Intro section end -->
 
 	<!-- Footer section -->
@@ -144,12 +146,12 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 	<!-- Footer section end -->
 	
 	<!--====== Javascripts & Jquery ======-->
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 	<script src="{{asset('js/jquery-3.2.1.min.js')}}"></script>
 	<script src="{{asset('js/bootstrap.min.js')}}"></script>
 	<script src="{{asset('js/jquery.slicknav.min.js')}}"></script>
 	<script src="{{asset('js/owl.carousel.min.js')}}"></script>
 	<script src="{{asset('js/mixitup.min.js')}}"></script>
 	<script src="{{asset('js/main.js')}}"></script>
-
 	</body>
 </html>

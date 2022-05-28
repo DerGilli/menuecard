@@ -1,0 +1,67 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello OrderController!{% endblock %}
+
+{% block body %}
+{% set sum = 0 %}
+
+<div class="container">
+<br>
+    <h2>Your Order</h2>
+<br>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <td>Order No.</td>
+                <td>Name</td>
+                <td>Price</td>
+                <td>Status</td>
+                <td></td>
+            </tr>
+        </thead>
+        <tbody>
+            {% for order in orders %}
+            {% if order.status != 'archive' %}
+                {% set sum = sum + order.price %}
+                <tr>
+                    <td>{{order.orderNumber}}</td>
+                    <td>{{order.name}}</td>
+                    <td>{{order.price}}</td>
+                    {% if not is_granted('IS_AUTHENTICATED_FULLY') %}
+                    <td>{{order.status}}</td>
+                    {% endif %}
+                    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                    <td>
+                        <div class="dropdown show">
+                            <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                {{order.status}}
+                            </a>
+
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                <a class="dropdown-item" href="{{path('app_status', {id: order.id, status: 'pending'})}}">Pending</a>
+                                <a class="dropdown-item" href="{{path('app_status', {id: order.id, status: 'done'})}}">Done</a>
+                                <a class="dropdown-item" href="{{path('app_status', {id: order.id, status: 'archive'})}}">Archive</a>
+                            </div>
+                        </div>
+                    </td>
+                    {% endif %}
+
+                    <td> 
+                        {% if order.status == 'pending' %}
+                        <a class="btn btn-outline-danger btn-sm" href="{{path('order_delete', {id: order.id})}}">Delete</a>
+                        {% endif %}
+                    </td>
+                </tr>
+                {% endif %}
+            {% endfor %}
+            <tr>
+                <td></td>
+                <td></td>
+                <td>{{sum}} EUR</td>
+                <td></td>
+                <td></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+{% endblock %}
